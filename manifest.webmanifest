@@ -1,0 +1,26 @@
+{
+  "name": "Smart KW Multi-AI 학생성장 통합 멘토링",
+  "short_name": "Smart KW CARE",
+  "description": "CARE로 연결하는 나만의 성장 여정",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#f7faf8",
+  "theme_color": "#0f5b55",
+  "lang": "ko-KR",
+  "orientation": "any",
+  "icons": [
+    {
+      "src": "./icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "./icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}
