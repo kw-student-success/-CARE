@@ -243,7 +243,25 @@ body,button,input,textarea,select{font-family:"Noto Sans KR","Apple SD Gothic Ne
     <div class="field"><label>소속 단과대학 <span class="req">*</span></label><input id="college"></div>
     <div class="field"><label>학과(부) <span class="req">*</span></label><input id="department"></div>
     <div class="field"><label>연락처(휴대폰) <span class="req">*</span></label><input id="phone" type="tel" placeholder="010-0000-0000"></div>
-    <div class="field"><label>현재 학사 상태 <span class="req">*</span></label><select id="status"><option value="">선택해주세요</option><option>1학년 신입생</option><option>재학생 (2~4학년)</option><option>편입생 / 복학생</option><option>학사경고 이력 보유자</option><option>외국인 유학생</option></select></div>
+    <div class="field"><label>현재 학년 <span class="req">*</span></label>
+      <select id="grade">
+       <option value="">선택해주세요</option>
+       <option>1학년</option><option>2학년</option><option>3학년</option><option>4학년</option>
+      </select>
+    </div>
+    <div class="field"><label>입학·재학 유형 <span class="req">*</span></label>
+      <select id="studentType">
+       <option value="">선택해주세요</option>
+       <option>신입생</option><option>편입생</option><option>복학생</option><option>외국인 유학생</option><option>기타</option>
+      </select>
+    </div>
+    <div class="field"><label>학사경고 이력 <span class="small">선택사항</span></label>
+      <select id="academicWarning">
+       <option value="">응답하지 않음</option>
+       <option>없음</option><option>있음</option>
+      </select>
+      <div class="small" style="margin-top:5px">학사경고 이력은 CARE 유형을 자동 확정하는 기준이 아니라 지원 우선순위 검토를 위한 참고정보로만 활용합니다.</div>
+    </div>
    </div>
    <div class="sectiontitle" style="margin-top:20px"><div class="num">02</div><div><h3 style="margin:0">현재 고민·지원요구</h3><p class="small">현재 대학생활에서 가장 고민되는 점이나 도움이 필요한 부분을 자유롭게 적어주세요.</p></div></div>
    <textarea id="msg" placeholder="예: 전공이 저한테 맞는지 고민되고 수업도 따라가기 어려워요."></textarea>
