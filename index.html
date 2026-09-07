@@ -112,39 +112,12 @@
 @media(max-width:700px){.board-head,.board-tools{align-items:stretch;flex-direction:column}.board-search{max-width:none}.community-table th:first-child,.community-table td:first-child{display:none}}
 </style>
 
-<style>
-/* MOBILE + KOREAN GOTHIC TYPOGRAPHY */
-:root{--mobile-gutter:16px}
-body,button,input,textarea,select{font-family:"Noto Sans KR","Apple SD Gothic Neo","Malgun Gothic",Arial,sans-serif}
-.title,.hero h1,.overview-title,.overview-hero h1,.principle-card h2,.validation-hero h1,.assignment-hero h1,.center-intro h1,.center-symbol strong,.center-section-head h2,.greeting-copy h2,.center-message h3,.community-hero h1,.board-title,.modal-top h2,.post-view-head h2,.login h2,.competency-card .n,.today-total strong,.assignment-summary strong{font-family:"Noto Sans KR","Apple SD Gothic Neo","Malgun Gothic",Arial,sans-serif}
-@media(max-width:700px){
-  .shell{display:block}
-  .side{position:sticky;top:0;inset:auto;width:100%;height:auto;padding:10px var(--mobile-gutter);border-right:0;border-bottom:1px solid var(--line);box-shadow:0 3px 14px rgba(27,62,58,.07);z-index:30}
-  .logo{margin:0 0 9px;gap:8px}.mark{width:30px;height:30px;border-radius:7px}.logo b{font-size:14px}.logo small{font-size:8px}
-  .navtitle{display:none}
-  .side .nav{display:inline-flex;width:auto;align-items:center;gap:4px;padding:8px 9px;margin:0 2px 0 0;border-radius:7px;font-size:11px;white-space:nowrap}
-  .side .nav span{width:auto;font-size:12px}.side .nav b{display:inline;font-size:10px}
-  .side .adminonly{display:inline}
-  .main{margin-left:0;width:100%}
-  .top{height:auto;min-height:67px;padding:13px var(--mobile-gutter);gap:10px;align-items:flex-start}.kicker{font-size:8px}.title{font-size:18px;line-height:1.35}.topright{font-size:9px;text-align:right;flex-shrink:0}.topright #syncText{display:none}.topright .btn{padding:8px 9px;font-size:10px}
-  .content{padding:16px var(--mobile-gutter) 42px}
-  .card{padding:16px;border-radius:10px}.hero,.overview-hero,.validation-hero,.assignment-hero,.center-intro,.community-hero{padding:24px 18px;border-radius:12px}
-  .hero h1,.overview-hero h1,.validation-hero h1,.assignment-hero h1,.center-intro h1,.community-hero h1{font-size:26px;line-height:1.35;word-break:keep-all}
-  .overview-title,.board-title{font-size:25px}.center-section-head{display:block}.center-section-head p{margin-top:6px}
-  .care4,.stats,.validation-stats,.assignment-cards,.assignment-summary,.center-overview-strip,.growth-road,.center-care-grid,.community-grid,.competency-grid{grid-template-columns:1fr}
-  .grid2,.detailgrid,.overview-grid,.overview-bottom,.validation-bottom,.assign-grid{grid-template-columns:1fr}
-  .full{grid-column:auto}.overview-head{display:block}.overview-actions{margin-top:10px;justify-content:flex-start}
-  .steps{overflow-x:auto;white-space:nowrap;padding-bottom:4px}.steps i{min-width:18px}
-  .toolbar,.board-head,.board-tools,.ledger-head{align-items:stretch;flex-direction:column;gap:10px}.filters{display:grid;grid-template-columns:1fr 1fr}.filters input,.filters select{width:100%;min-width:0}.validation-search,.board-search{width:100%;max-width:none}
-  .tablewrap{margin:0 -16px;padding:0 16px}.tablewrap table{min-width:720px}
-  .center-message{padding:20px;align-items:flex-start;gap:12px;flex-direction:column}.center-message .contact{text-align:left}
-  .growth-step:not(:last-child):after{display:none}.identity-mini{grid-template-columns:1fr}.community-page-grid .community-card{min-height:150px}
-  .assign-tools{width:100%;flex-wrap:wrap}.assign-tools input,.assign-tools select{flex:1;min-width:120px}
-  input,select,textarea{font-size:16px;padding:12px}.btn{padding:11px 13px}.login{margin:30px auto}
-}
-@media(max-width:380px){.side .nav{padding:7px 5px}.side .nav b{font-size:9px}.title{font-size:16px}.hero h1,.overview-hero h1,.validation-hero h1,.assignment-hero h1,.center-intro h1,.community-hero h1{font-size:23px}}
-</style>
-
+<link rel="manifest" href="./manifest.webmanifest">
+<meta name="theme-color" content="#0f5b55">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="apple-mobile-web-app-title" content="Smart KW CARE">
+<link rel="apple-touch-icon" href="./icon-192.png">
 </head>
 <body>
 <div class="shell">
@@ -346,7 +319,7 @@ body,button,input,textarea,select{font-family:"Noto Sans KR","Apple SD Gothic Ne
 
 <section id="applications" class="page adminPage">
  <div class="toolbar"><div><div class="kicker">APPLICATION MANAGEMENT</div><h2>전체 신청현황</h2></div><div class="filters"><input id="searchBox" placeholder="학번·이름·학과 검색" oninput="renderApplications()"><select id="careFilter" onchange="renderApplications()"><option value="">CARE 전체</option><option>C</option><option>A</option><option>R</option><option>E</option></select><select id="statusFilter" onchange="renderApplications()"><option value="">상태 전체</option><option>신청접수</option><option>확인중</option><option>멘토링 배정</option><option>전문부서 연계</option><option>지원중</option><option>완료</option></select><button class="btn outline" onclick="loadAdminData()">새로고침</button></div></div>
- <div class="card tablewrap"><table><thead><tr><th>신청일시</th><th>학번</th><th>이름</th><th>소속</th><th>CARE</th><th>우선지원</th><th>멘토링 후보</th><th>상태</th></tr></thead><tbody id="appRows"></tbody></table></div>
+ <div class="card tablewrap"><table><thead><tr><th>신청일시</th><th>학번</th><th>이름</th><th>소속</th><th>학년</th><th>학생유형</th><th>CARE</th><th>우선지원</th><th>멘토링 후보</th><th>상태</th></tr></thead><tbody id="appRows"></tbody></table></div>
  <section id="detailCard" class="card hidden" style="margin-top:14px"></section>
 </section>
 
@@ -469,7 +442,7 @@ const pageTitles={centerOverview:['STUDENT SUCCESS DESIGN CENTER','센터개요'
 function go(id){if(document.getElementById(id)?.classList.contains('adminPage')&&!currentToken){id='adminLogin'}document.querySelectorAll('.page').forEach(x=>x.classList.remove('active'));document.getElementById(id).classList.add('active');document.querySelectorAll('.nav[data-page]').forEach(x=>x.classList.toggle('active',x.dataset.page===id));topKicker.textContent=pageTitles[id][0];topTitle.textContent=pageTitles[id][1];window.scrollTo(0,0);if(id==='dashboard'&&currentToken)renderDashboard();if(id==='applications'&&currentToken)renderApplications();if(id==='validation'&&currentToken)renderValidation();if(id==='assignment'&&currentToken)renderAssignment()}
 document.querySelectorAll('.nav[data-page]').forEach(b=>b.onclick=()=>go(b.dataset.page));
 function hits(t,arr){return arr.filter(k=>t.includes(k))}
-function analyze(){let required=[['name','이름'],['sid','학번'],['college','소속 단과대학'],['department','학과(부)'],['phone','연락처'],['status','현재 학사 상태']];for(const [id,label] of required){let el=document.getElementById(id);if(!el.value.trim()){alert(label+'을(를) 입력해주세요.');el.focus();return}}let t=msg.value.trim();if(!t){alert('현재 대학생활에서 가장 고민되는 점이나 도움이 필요한 부분을 입력해주세요.');return}let out={},confirmed=[],needs=[],mentors=[];for(const [k,d] of Object.entries(defs)){let h=hits(t,d.kw);let st=h.length?'관련 있음':'현재 근거 없음';if(k==='R'&&!h.length&&hits(t,rMaybe).length)st='추가 확인 필요';out[k]={status:st,h};if(st==='관련 있음'){confirmed.push(k);mentors.push(d.mentor)}if(st==='추가 확인 필요')needs.push(k)}
+function analyze(){let required=[['name','이름'],['sid','학번'],['college','소속 단과대학'],['department','학과(부)'],['phone','연락처'],['grade','현재 학년'],['studentType','입학·재학 유형']];for(const [id,label] of required){let el=document.getElementById(id);if(!el.value.trim()){alert(label+'을(를) 입력해주세요.');el.focus();return}}let t=msg.value.trim();if(!t){alert('현재 대학생활에서 가장 고민되는 점이나 도움이 필요한 부분을 입력해주세요.');return}let out={},confirmed=[],needs=[],mentors=[];for(const [k,d] of Object.entries(defs)){let h=hits(t,d.kw);let st=h.length?'관련 있음':'현재 근거 없음';if(k==='R'&&!h.length&&hits(t,rMaybe).length)st='추가 확인 필요';out[k]={status:st,h};if(st==='관련 있음'){confirmed.push(k);mentors.push(d.mentor)}if(st==='추가 확인 필요')needs.push(k)}
 if(/스트레스.{0,8}(아니|없)|마음이 힘들.{0,8}(아니|않)/.test(t)){out.R={status:'현재 근거 없음',h:[]};confirmed=confirmed.filter(x=>x!=='R');mentors=mentors.filter(x=>x!==defs.R.mentor);needs=needs.filter(x=>x!=='R')}
 if(/전공이나 진로.{0,12}(고민은 없|고민이 없)|전공.{0,8}만족/.test(t)&&!/(취업|직업|진로 생각|전공 변경|전과)/.test(t)){out.C={status:'현재 근거 없음',h:[]};confirmed=confirmed.filter(x=>x!=='C');mentors=mentors.filter(x=>x!==defs.C.mentor)}
 if(/성적.{0,8}(고민은 없|별문제 없)|공부 자체는 괜찮/.test(t)&&!/(수업.*어렵|과제|공부 방법|학습|집중)/.test(t)){out.A={status:'현재 근거 없음',h:[]};confirmed=confirmed.filter(x=>x!=='A');mentors=mentors.filter(x=>x!==defs.A.mentor)}
@@ -479,7 +452,7 @@ let qs=[];if(out.C.status==='관련 있음')qs.push('전공이나 진로와 관�
 function confirmedEl(arr){confirmed.innerHTML=arr.length?arr.map(k=>`<span class="pill yes">${k} · ${defs[k].name}</span>`).join(''):'<span class="pill no">현재 확인된 영역 없음</span>'}
 function needsEl(arr){needs.textContent=arr.length?arr.join(', ')+' 영역의 의미와 정도를 추가 확인할 필요가 있습니다.':'없음'}
 function reanalyze(){if(!lastAnalysis)return;let answers=lastAnalysis.questions.map((q,i)=>({question:q,answer:(document.getElementById('fu'+i)?.value||'').trim()}));if(!answers.some(x=>x.answer)){alert('후속질문에 답변을 입력해주세요.');return}lastAnalysis.followups=answers;let combined=lastAnalysis.text+' '+answers.map(x=>x.answer).join(' ');let add=[];for(const [k,d] of Object.entries(defs)){if(hits(combined,d.kw).length&&!lastAnalysis.confirmed.includes(k))add.push(k)}lastAnalysis.confirmed=[...new Set([...lastAnalysis.confirmed,...add])];lastAnalysis.mentors=[...new Set(lastAnalysis.confirmed.map(k=>defs[k].mentor))];confirmedEl(lastAnalysis.confirmed);mentor.textContent=lastAnalysis.mentors.length?lastAnalysis.mentors.join(' + '):'현재 지원요구 추가 확인';finalNeed.textContent='처음 작성한 내용과 후속답변을 함께 반영했습니다. 학생이 가장 먼저 도움받고 싶은 지원을 직접 선택하면 최종 신청정보에 함께 저장됩니다.';applyCard.classList.remove('hidden');applyCard.scrollIntoView({behavior:'smooth'})}
-function collectApplication(){const v=id=>document.getElementById(id)?.value?.trim()||'';return {action:'submit',requestId:'CARE-'+Date.now()+'-'+Math.random().toString(36).slice(2,8),submittedAt:new Date().toISOString(),sid:v('sid'),name:v('name'),college:v('college'),department:v('department'),phone:v('phone'),academicStatus:v('status'),originalText:v('msg'),care:(lastAnalysis?.confirmed||[]).join('+'),priority:v('priority'),mentorCandidates:(lastAnalysis?.mentors||[]).join('+'),followupQA:JSON.stringify(lastAnalysis?.followups||[]),applicationStatus:'신청접수'}}
+function collectApplication(){const v=id=>document.getElementById(id)?.value?.trim()||'';return {action:'submit',requestId:'CARE-'+Date.now()+'-'+Math.random().toString(36).slice(2,8),submittedAt:new Date().toISOString(),sid:v('sid'),name:v('name'),college:v('college'),department:v('department'),phone:v('phone'),grade:v('grade'),studentType:v('studentType'),academicWarning:v('academicWarning'),academicStatus:[v('grade'),v('studentType')].filter(Boolean).join(' / '),originalText:v('msg'),care:(lastAnalysis?.confirmed||[]).join('+'),priority:v('priority'),mentorCandidates:(lastAnalysis?.mentors||[]).join('+'),followupQA:JSON.stringify(lastAnalysis?.followups||[]),applicationStatus:'신청접수'}}
 async function submitApplication(){if(!lastAnalysis)return alert('먼저 CARE 분석을 진행해주세요.');if(!priority.value)return alert('가장 먼저 도움받고 싶은 지원을 선택해주세요.');if(!consent.checked)return alert('정보 제공 동의가 필요합니다.');let data=collectApplication();submitMsg.innerHTML='<div class="notice">신청정보를 전송하고 있습니다.</div>';try{let r=await fetch(SERVER_ENDPOINT,{method:'POST',headers:{'Content-Type':'text/plain;charset=utf-8'},body:JSON.stringify(data)});let j=await r.json();if(!j.ok)throw new Error(j.message||'저장 실패');submitMsg.innerHTML=`<div class="success"><b>성장지원 신청이 완료되었습니다.</b><br>접수번호: ${data.requestId}</div>`}catch(e){submitMsg.innerHTML=`<div class="error"><b>신청 저장을 확인하지 못했습니다.</b><br>${escapeHtml(e.message)}<br><span class="small">Apps Script 배포 URL과 접근권한을 확인해주세요.</span></div>`}}
 async function loginAdmin(){currentToken=adminToken.value.trim();if(!currentToken)return alert('관리자 토큰을 입력해주세요.');loginMsg.innerHTML='<div class="notice">인증 중입니다.</div>';try{await loadAdminData();document.body.classList.add('logged');logoutBtn.classList.remove('hidden');loginMsg.innerHTML='';go('dashboard')}catch(e){currentToken='';loginMsg.innerHTML=`<div class="error">${escapeHtml(e.message)}</div>`}}
 async function loadAdminData(){let u=new URL(SERVER_ENDPOINT);u.searchParams.set('action','list');u.searchParams.set('adminToken',currentToken);let r=await fetch(u);let j=await r.json();if(!j.ok)throw new Error(j.message||'관리자 인증 또는 데이터 조회 실패');adminData=j.data||[];syncText.textContent='마지막 동기화 '+new Date().toLocaleTimeString('ko-KR',{hour:'2-digit',minute:'2-digit'});renderDashboard();renderApplications()}
@@ -502,9 +475,33 @@ function renderDashboard(){
  if(document.getElementById('todayTotal')) todayTotal.textContent=todayRows.length||adminData.length;
  if(document.getElementById('careSignalList')) careSignalList.innerHTML=['A','C','E','R'].map(k=>`<div><b class="sig${k}">${k}</b><strong>${defs[k].name.split(' · ')[1]||defs[k].name}</strong><span>${counts[k]}</span></div>`).join('');
  if(document.getElementById('overviewSync')) overviewSync.textContent='마지막 동기화 '+new Date().toLocaleTimeString('ko-KR',{hour:'2-digit',minute:'2-digit'});
+ const gradeCounts={'1학년':0,'2학년':0,'3학년':0,'4학년':0};
+ const typeCounts={'신입생':0,'편입생':0,'복학생':0,'외국인 유학생':0,'기타':0};
+ let warningYes=0;
+ adminData.forEach(x=>{
+   if(gradeCounts[x.grade]!==undefined) gradeCounts[x.grade]++;
+   if(typeCounts[x.studentType]!==undefined) typeCounts[x.studentType]++;
+   if(x.academicWarning==='있음') warningYes++;
+ });
+ let box=document.getElementById('academicProfileSummary');
+ if(!box && recentRows && recentRows.parentElement){
+   box=document.createElement('div'); box.id='academicProfileSummary'; box.className='card'; box.style.marginTop='14px';
+   recentRows.parentElement.parentElement.appendChild(box);
+ }
+ if(box){
+   box.innerHTML='<div class="kicker">STUDENT PROFILE / INTAKE</div><h3>학적 특성 현황</h3>'
+    +'<div class="small"><b>학년</b> · '+Object.entries(gradeCounts).map(([k,v])=>k+' '+v+'명').join(' · ')+'</div>'
+    +'<div class="small" style="margin-top:7px"><b>입학·재학 유형</b> · '+Object.entries(typeCounts).map(([k,v])=>k+' '+v+'명').join(' · ')+'</div>'
+    +'<div class="small" style="margin-top:7px"><b>학사경고 이력 있음</b> · '+warningYes+'명 <span style="color:var(--muted)">(선택응답 기준)</span></div>';
+ }
+
 }
-function renderApplications(){let q=(searchBox?.value||'').toLowerCase(),cf=careFilter?.value||'',sf=statusFilter?.value||'';let rows=adminData.filter(x=>(!q||[x.sid,x.name,x.department,x.college].join(' ').toLowerCase().includes(q))&&(!cf||String(x.care).includes(cf))&&(!sf||x.applicationStatus===sf));appRows.innerHTML=rows.length?rows.map((x,i)=>`<tr class="clickrow" onclick="showDetail('${escapeAttr(x.requestId)}')"><td>${escapeHtml(x.submittedAt||'')}</td><td>${escapeHtml(x.sid||'')}</td><td><b>${escapeHtml(x.name||'')}</b></td><td>${escapeHtml(x.college||'')}<br>${escapeHtml(x.department||'')}</td><td>${escapeHtml(x.care||'-')}</td><td>${escapeHtml(x.priority||'-')}</td><td>${escapeHtml(x.mentorCandidates||'-')}</td><td><span class="status">${escapeHtml(x.applicationStatus||'신청접수')}</span></td></tr>`).join(''):'<tr><td colspan="8">조건에 맞는 신청이 없습니다.</td></tr>'}
-function showDetail(id){let x=adminData.find(r=>r.requestId===id);if(!x)return;let fu='';try{fu=JSON.parse(x.followupQA||'[]').map(a=>`<p><b>Q.</b> ${escapeHtml(a.question)}<br><b>A.</b> ${escapeHtml(a.answer)}</p>`).join('')}catch{fu=escapeHtml(x.followupQA||'')}detailCard.innerHTML=`<div class="toolbar"><div><div class="kicker">STUDENT DETAIL</div><h3>${escapeHtml(x.name)} · ${escapeHtml(x.sid)}</h3></div><button class="btn outline" onclick="detailCard.classList.add('hidden')">닫기</button></div><div class="detailgrid"><div class="detailbox"><h4>학생정보</h4>${escapeHtml(x.college||'')} / ${escapeHtml(x.department||'')}<br>${escapeHtml(x.phone||'')}<br>${escapeHtml(x.academicStatus||'')}</div><div class="detailbox"><h4>CARE · 우선지원 · 멘토링</h4>CARE: <b>${escapeHtml(x.care||'-')}</b><br>우선지원: <b>${escapeHtml(x.priority||'-')}</b><br>멘토링 후보: ${escapeHtml(x.mentorCandidates||'-')}</div><div class="detailbox full"><h4>학생 원문</h4>${escapeHtml(x.originalText||'')}</div><div class="detailbox full"><h4>후속질문 · 답변</h4>${fu||'없음'}</div><div class="detailbox full"><h4>처리상태</h4><select id="detailStatus"><option>신청접수</option><option>확인중</option><option>멘토링 배정</option><option>전문부서 연계</option><option>지원중</option><option>완료</option></select><button class="btn primary" style="margin-top:9px" onclick="updateStatus('${escapeAttr(id)}')">상태 저장</button><div id="statusMsg"></div></div></div>`;detailStatus.value=x.applicationStatus||'신청접수';detailCard.classList.remove('hidden');detailCard.scrollIntoView({behavior:'smooth'})}
+function renderApplications(){let q=(searchBox?.value||'').toLowerCase(),cf=careFilter?.value||'',sf=statusFilter?.value||'';let rows=adminData.filter(x=>(!q||[x.sid,x.name,x.department,x.college,x.grade,x.studentType].join(' ').toLowerCase().includes(q))&&(!cf||String(x.care).includes(cf))&&(!sf||x.applicationStatus===sf));appRows.innerHTML=rows.length?rows.map((x,i)=>`<tr class="clickrow" onclick="showDetail('${escapeAttr(x.requestId)}')"><td>${escapeHtml(x.submittedAt||'')}</td><td>${escapeHtml(x.sid||'')}</td><td><b>${escapeHtml(x.name||'')}</b></td><td>${escapeHtml(x.college||'')}<br>${escapeHtml(x.department||'')}</td><td>${escapeHtml(x.grade||'-')}</td><td>${escapeHtml(x.studentType||'-')}</td><td>${escapeHtml(x.care||'-')}</td><td>${escapeHtml(x.priority||'-')}</td><td>${escapeHtml(x.mentorCandidates||'-')}</td><td><span class="status">${escapeHtml(x.applicationStatus||'신청접수')}</span></td></tr>`).join(''):'<tr><td colspan="10">조건에 맞는 신청이 없습니다.</td></tr>'}
+function showDetail(id){let x=adminData.find(r=>r.requestId===id);if(!x)return;let fu='';try{fu=JSON.parse(x.followupQA||'[]').map(a=>`<p><b>Q.</b> ${escapeHtml(a.question)}<br><b>A.</b> ${escapeHtml(a.answer)}</p>`).join('')}catch{fu=escapeHtml(x.followupQA||'')}detailCard.innerHTML=`<div class="toolbar"><div><div class="kicker">STUDENT DETAIL</div><h3>${escapeHtml(x.name)} · ${escapeHtml(x.sid)}</h3></div><button class="btn outline" onclick="detailCard.classList.add('hidden')">닫기</button></div><div class="detailgrid"><div class="detailbox"><h4>학생정보</h4>${escapeHtml(x.college||'')} / ${escapeHtml(x.department||'')}<br>${escapeHtml(x.phone||'')}<br>
+현재학년: <b>${escapeHtml(x.grade||'-')}</b><br>
+입학·재학유형: <b>${escapeHtml(x.studentType||'-')}</b><br>
+학사경고이력: <b>${escapeHtml(x.academicWarning||'응답하지 않음')}</b>
+${(!x.grade&&!x.studentType&&x.academicStatus)?'<br><span class="small">기존 학사상태: '+escapeHtml(x.academicStatus)+'</span>':''}</div><div class="detailbox"><h4>CARE · 우선지원 · 멘토링</h4>CARE: <b>${escapeHtml(x.care||'-')}</b><br>우선지원: <b>${escapeHtml(x.priority||'-')}</b><br>멘토링 후보: ${escapeHtml(x.mentorCandidates||'-')}</div><div class="detailbox full"><h4>학생 원문</h4>${escapeHtml(x.originalText||'')}</div><div class="detailbox full"><h4>후속질문 · 답변</h4>${fu||'없음'}</div><div class="detailbox full"><h4>처리상태</h4><select id="detailStatus"><option>신청접수</option><option>확인중</option><option>멘토링 배정</option><option>전문부서 연계</option><option>지원중</option><option>완료</option></select><button class="btn primary" style="margin-top:9px" onclick="updateStatus('${escapeAttr(id)}')">상태 저장</button><div id="statusMsg"></div></div></div>`;detailStatus.value=x.applicationStatus||'신청접수';detailCard.classList.remove('hidden');detailCard.scrollIntoView({behavior:'smooth'})}
 async function updateStatus(id){let payload={action:'updateStatus',adminToken:currentToken,requestId:id,applicationStatus:detailStatus.value};try{let r=await fetch(SERVER_ENDPOINT,{method:'POST',headers:{'Content-Type':'text/plain;charset=utf-8'},body:JSON.stringify(payload)});let j=await r.json();if(!j.ok)throw new Error(j.message||'상태 변경 실패');statusMsg.innerHTML='<div class="success">처리상태가 저장되었습니다.</div>';await loadAdminData()}catch(e){statusMsg.innerHTML=`<div class="error">${escapeHtml(e.message)}</div>`}}
 function logout(){currentToken='';adminToken.value='';adminData=[];document.body.classList.remove('logged');logoutBtn.classList.add('hidden');syncText.textContent='학생지원 통합 플랫폼';go('home')}
 function resetAll(){msg.value='';['name','sid','college','department','phone','status'].forEach(id=>document.getElementById(id).value='');summary.textContent='학생의 내용을 입력하면 여기에 요약됩니다.';confirmed.innerHTML='<span class="pill no">분석 전</span>';mentor.textContent='추가 정보 확인 후 결정합니다.';domains.innerHTML='<div class="small">분석 전입니다.</div>';needs.textContent='없음';questions.innerHTML='<div class="small">분석 후 필요한 질문과 답변 입력창이 표시됩니다.</div>';reanalyzeBtn.classList.add('hidden');applyCard.classList.add('hidden');submitMsg.innerHTML='';lastAnalysis=null}
@@ -667,4 +664,9 @@ function deleteCommunityPost(id){if(!confirm('이 글을 삭제하시겠습니�
 postModal?.addEventListener('click',e=>{if(e.target===postModal)closePostEditor()});
 </script>
 
+<script>
+if ('serviceWorker' in navigator) {
+ window.addEventListener('load',()=>navigator.serviceWorker.register('./service-worker.js').catch(console.error));
+}
+</script>
 </body></html>
